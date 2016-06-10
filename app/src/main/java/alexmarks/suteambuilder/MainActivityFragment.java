@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -25,25 +26,19 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        String[] teamArray1 = {
-                "Aliens",
-                "Sharks",
-                "Dragons",
-                "Wizards",
-                "Pirates",
-                "Ninjas",
-                "Princesses"
-        };
+        String[] teamArray1 = new String[2];
 
-        String[] teamArray2 = {
-                "Sharks",
-                "Dragons",
-                "Wizards",
-                "Pirates",
-                "Ninjas",
-                "Princesses",
-                "Aliens"
-        };
+        String[] teamArray2 = new String[2];
+        Integer index;
+        Random rand = new Random();
+
+        for (int i = 0; i < 2; i++) {
+            index = rand.nextInt(42) + 1;
+            teamArray1[i] = Integer.toString(index);
+            index = rand.nextInt(42) + 1;
+            teamArray2[i] = Integer.toString(index);
+
+        }
 
         ArrayList<String> teamSet1 = new ArrayList<>(
                 Arrays.asList(teamArray1)
